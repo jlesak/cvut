@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="src/svgtree.css">
+    <script src="src/svgtree.js"></script>
+
+    <title>Title</title>
+</head>
+<body>
+<svg id="test-init" viewBox="0 0 100 100"></svg>
+
+<script>
+    (function() {
+        // In HTML:
+        // <div id="test-init"></div>
+
+        var svg = document.querySelector('#test-init');
+        new SVGTree('((B,((F,((M,N,O)K,L)G)D,(H,I)E)C)A;', svg);
+    })();
+</script>
+</body>
+</html>
+((B,((F,((M,N,O)K,L)G)D,(H,I)E)C)A

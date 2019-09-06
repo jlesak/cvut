@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>
+        CSS Grid
+    </title>
+    <style>
+        /* 1st variant */
+        /*
+            https://css-tricks.com/snippets/css/complete-guide-grid/#prop-grid-auto-columns-rows
+            https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout
+
+            - vyrobte layout
+                - bez a s pomoci grid-template-areas
+
+                +--------------------------------------------------+
+                |                                                  |
+                |                     Header                       |
+                +--------------------------------------------------+
+                |       |                              |     |     |
+                |       |                              |     |     |
+                |   Nav |             Article          | as1 | as2 |
+                |       |                              |     |     |
+                |       |                              |     |     |
+                +--------------------------------------------------+
+                |                                                  |
+                |                      Footer                      |
+                |                                                  |
+                +---------------------------------------------------+
+        */
+
+        .container {
+            display: grid;
+            min-height: 100vh;
+            grid-template-columns: 300px 2fr 10% 10%;
+            grid-template-rows: 100px auto 50px;
+            grid-gap: 10px 5px;
+        }
+
+        .box {
+            background: antiquewhite;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        header.box {
+            background: lightgray;
+        }
+
+        footer.box {
+            background: darkolivegreen;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <header class="box">
+        header
+    </header>
+    <nav class="box">
+        nav
+    </nav>
+    <article class="box">
+        article
+    </article>
+
+    <aside class="box" id="a1">
+        aside 1
+    </aside>
+
+    <aside class="box" class="a2">
+        aside 2
+    </aside>
+
+    <footer class="box">
+        footer
+    </footer>
+</div>
+
+</body>
+</html>

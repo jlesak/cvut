@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<GridPane fx:id="gridPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="128.0" prefWidth="289.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="515.0" minWidth="10.0" prefWidth="218.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints maxHeight="25.0" minHeight="10.0" prefHeight="25.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="25.0" minHeight="10.0" prefHeight="25.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <Text fx:id="nameText" strokeType="OUTSIDE" strokeWidth="0.0" text="nazev zpravy">
+         <GridPane.margin>
+            <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+         </GridPane.margin>
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Text>
+      <Text fx:id="fromText" fill="#1674f5" strokeType="OUTSIDE" strokeWidth="0.0" text="od koho" GridPane.rowIndex="1">
+         <GridPane.margin>
+            <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+         </GridPane.margin>
+      </Text>
+       <Text fx:id="contentText" strokeType="OUTSIDE" strokeWidth="0.0" text="text zpravz" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="TOP">
+           <GridPane.margin>
+               <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+           </GridPane.margin>
+       </Text>
+      <Text fx:id="dateText" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+         <GridPane.margin>
+            <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+         </GridPane.margin>
+      </Text>
+   </children>
+</GridPane>

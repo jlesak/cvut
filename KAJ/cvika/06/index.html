@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Lecture 06</title>
+
+    <style>
+        body {
+            font-size: 14px;
+            font-family: Arial, sans-serif;
+            color: #000;
+            background-color: #fff;
+        }
+
+        #menu ul {
+            margin: 0px;
+            list-style-type: none;
+        }
+
+        #menu ul li{
+            display: inline-block;
+            background: gray;
+            margin: 0;
+        }
+
+        li a {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            display: block;
+        }
+
+        li a:hover{
+            background: black;
+        }
+
+        #burger {
+            overflow: hidden;
+            width: 0;
+            height: 0;
+        }
+
+        #burger:before {
+            display: none;
+            content: "\2630";
+            background: #111;
+            color: #fefefe;
+            padding: 3px 10px 4px 10px;
+            cursor: pointer;
+
+        }
+
+        #burger + input[type=checkbox]
+        {
+            display: none;
+        }
+
+        #menu li a:before{
+            content: attr(data-state)" ";
+            color: yellowgreen;
+        }
+
+        @media all and (max-width: 800px){
+            #menu ul li {
+                display: block;
+            }
+
+            #burger:before{
+                display: inline-block;
+
+            }
+
+            #menu {
+                display: none;
+                counter-reset: item;
+            }
+
+            #burger + input[type=checkbox]:checked + #menu
+            {
+                display: block;
+            }
+
+            #menu li a::after {
+                counter-increment: item;
+                content: "poradi: " counter(item);
+                color: sandybrown;
+            }
+            #menu li:nth-child(2n){
+                background: darkslategray;
+            }
+
+        }
+
+        /*
+            5. Ocislujte jednotlive polozky pomoci css generatoru
+            6. U pozadi polozek stridejte barvu pozadi
+        */
+    </style>
+</head>
+<body>
+
+
+</body>
+</html>

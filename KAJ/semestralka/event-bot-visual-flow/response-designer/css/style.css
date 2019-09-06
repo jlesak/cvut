@@ -1,0 +1,224 @@
+body{
+    margin-bottom: 10px;
+    cursor: auto;
+}
+
+.intent-section{
+    width: max-content;
+    border-left: 1px dashed gray;
+}
+
+.form-group{
+    width: 400pt;
+}
+
+.intent-select{
+    max-width: 150px;
+}
+.container{
+    margin-left: 0;
+}
+
+.response-text {
+    font-size: 11pt;
+    margin-right: 3px;
+}
+.response-li{
+    display: flex;
+    align-items: flex-end;
+}
+
+.page-section {
+    padding-top: 60px;
+    margin: 0 10px 0 10px;
+    display: none;
+}
+.page-section.is-visible {
+    display: block;
+}
+
+.page-section > h2{
+    margin-bottom: 20px;
+    color: #111;
+}
+#navigation{
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    background-color: #333;
+}
+#nav-list{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+
+}
+
+#nav-list li{
+    float: left;
+}
+#nav-list button{
+    border: none;
+    background-color: gray;
+}
+
+#nav-list button:hover{
+    background-color: dimgray;
+}
+
+
+#nav-list li *{
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+#nav-list a:hover:not(.active) {
+        background-color: #111;
+}
+
+.active {
+    background-color: #4CAF50;
+}
+
+svg {
+    background: lightgrey;
+}
+
+
+
+/*Designer*/
+.response-text{
+    background-color: #f8f9fa;
+}
+
+.response-li:last-child .response-text{
+    background-color: white;
+}
+
+/* Modal */
+
+body.modal-visible .page-wrapper {
+    filter: blur(2px);
+}
+
+body.modal-visible {
+}
+
+.modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    padding: 16px;
+    box-sizing: border-box;
+    z-index: 99;
+}
+body.modal-visible .modal {
+    visibility: visible;
+}
+
+.modal-content {
+    display: block;
+    margin: auto;
+    padding: 1em;
+    width: 800px;
+    min-height: 500px;
+    transform: scale(0);
+    border-radius: 10px;
+    background: #fefefe;
+    transition: transform 0.5s ease;
+    border: 1px solid #007bff ;
+}
+
+.modal-content p{
+    text-align: center;
+    margin-top: 50pt;
+}
+
+.modal-content .modal-button{
+    color: darkred;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+.modal-content .modal-button:hover{
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+body.modal-visible .modal-content {
+    transform: scale(1);
+}
+
+
+/* json vizualizer*/
+.json-document {
+    padding: 1em 2em;
+}
+.json-section{
+font-family: "Lucida Console", Monaco, monospace
+}
+
+ul.json-dict, ul.json-array {
+    list-style-type: none;
+    margin: 0 0 0 1px;
+    border-left: 1px dotted #ccc;
+    padding-left: 2em;
+}
+.json-string {
+    color: #0B7500;
+}
+.json-literal {
+    color: #1A01CC;
+    font-weight: bold;
+}
+
+a.json-toggle {
+    position: relative;
+    color: inherit;
+    text-decoration: none;
+}
+a.json-toggle:focus {
+    outline: none;
+}
+a.json-toggle:before {
+    font-size: 1.1em;
+    color: #c0c0c0;
+    content: "\25BC";
+    position: absolute;
+    display: inline-block;
+    width: 1em;
+    text-align: center;
+    line-height: 1em;
+    left: -1.2em;
+}
+a.json-toggle:hover:before {
+    color: #aaa;
+}
+a.json-toggle.collapsed:before {
+    transform: rotate(-90deg);
+}
+
+a.json-placeholder {
+    color: #aaa;
+    padding: 0 1em;
+    text-decoration: none;
+}
+a.json-placeholder:hover {
+    text-decoration: underline;
+}
+
+

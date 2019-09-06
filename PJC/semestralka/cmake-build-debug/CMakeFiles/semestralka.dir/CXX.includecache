@@ -1,0 +1,42 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/cygdrive/d/Dropbox/CVUT/PJC/semestralka/dijkstra.cpp
+dijkstra.hpp
+/cygdrive/d/Dropbox/CVUT/PJC/semestralka/dijkstra.hpp
+utility
+-
+thread
+-
+iostream
+-
+mutex
+-
+
+/cygdrive/d/Dropbox/CVUT/PJC/semestralka/dijkstra.hpp
+string
+-
+limits
+-
+vector
+-
+
+/cygdrive/d/Dropbox/CVUT/PJC/semestralka/main.cpp
+iostream
+-
+fstream
+-
+thread
+-
+mutex
+-
+sstream
+-
+dijkstra.hpp
+/cygdrive/d/Dropbox/CVUT/PJC/semestralka/dijkstra.hpp
+

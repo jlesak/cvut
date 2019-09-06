@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Intent response editor</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/exporter.js"></script>
+    <script src="js/intentResponse.js"></script>
+    <script src="js/loader.js"></script>
+    <script src="js/visualizer.js"></script>
+    <script src="js/jsonViewer.js"></script>
+    <script src="js/script.js"></script>
+</head>
+<body>
+<!--modalni okno-->
+<div class="modal">
+    <div class="modal-content" id="drop_zone">
+        <span class="modal-button">&times;</span>
+        <p>Sem přetáhni JSON soubor.</p>
+    </div>
+</div>
+
+<!--navigace-->
+<div class="page-wrapper">
+<nav id="navigation">
+    <ul id="nav-list">
+        <li><a id="show-designer" href="#designer">Designér</a></li>
+        <li><a id="export-responses" href="#responses">Odpovědi</a></li>
+        <li><a id="export-intents" href="#intents">Intenty</a></li>
+        <li><a id="show-graph" href="#graph">Vizualizace</a></li>
+        <li><button class="modal-button">Import</button></li>
+    </ul>
+</nav>
+
+<!--designer stromu intentu a odpovedi-->
+<section class="page-section" data-route="#designer">
+    <h2>Designér odpovědí</h2>
+    <button class="btn btn-danger" id="clear-btn">Vymazat</button>
+    <form class="pt-md-2" id="responses-section">
+        <ul class="intents-list list-unstyled">
+        </ul>
+        <button type="button" class="btn btn-sm btn-outline-primary add-intent-button">+</button>
+    </form>
+
+</section>
+
+<!--export a vizualizace vsech odpovedi v JSONu -->
+<section class="page-section" data-route="#responses">
+    <h2>Responses</h2>
+    <pre class="bg-light p-3" id="responses-json"></pre>
+</section>
+
+<!--export a vizualizace stromu intentu v JSONu -->
+<section class="page-section" data-route="#intents">
+    <h2>Intents</h2>
+    <pre class="bg-light p-3" id="intents-json"></pre>
+</section>
+
+<!--vizualizace stromu intentu v podobe vykresleneho SVG stromu-->
+<section class="page-section" id="graph-section" data-route="#graph">
+    <h2>Graf intentů</h2>
+    <svg id="graph-svg" class="bg-light">
+    </svg>
+</section>
+</div>
+</body>
+</html>

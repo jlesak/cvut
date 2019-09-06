@@ -1,0 +1,15 @@
+{
+    "name": "EventBot",
+    "description": "",
+    "secretKey": "",
+    "services": [
+        {
+            "id": "887b0df0-ba86-11e8-ae01-6dae820b86d0",
+            "name": "http://localhost:5000/api/messages",
+            "type": "endpoint",
+            "appId": "",
+            "appPassword": "",
+            "endpoint": "http://localhost:5000/api/messages"
+        }
+    ]
+}

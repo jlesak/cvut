@@ -1,0 +1,1 @@
+/usr/bin/c++.exe -g  -Wl,--enable-auto-import CMakeFiles/semestralka.dir/main.cpp.o CMakeFiles/semestralka.dir/dijkstra.cpp.o  -o semestralka.exe -Wl,--out-implib,libsemestralka.dll.a -Wl,--major-image-version,0,--minor-image-version,0 

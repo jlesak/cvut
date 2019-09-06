@@ -1,0 +1,160 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Lecture 05</title>
+</head>
+<body>
+<section>
+    <h2>Star Wars</h2>
+    <ul id="star-wars"></ul>
+</section>
+
+<section>
+    <h2>Chat</h2>
+    <p>
+        <textarea id="chat" rows="10" cols="40" readonly></textarea>
+    </p>
+    <p>
+        <input type="text" id="chat-input">
+    </p>
+</section>
+
+<section>
+    <h2>Mapy.cz</h2>
+    <ul id="mapy"></ul>
+</section>
+
+<script>
+    /*
+        urls:
+            HTTP API with JSON response of StarWars characters
+                https://swapi.co/api/people/
+            WebSocket API with text messages
+                ws://salty-peak-74076.herokuapp.com/
+            HTTP API with XML response of places matching given query
+                https://api.mapy.cz/geocode?query=praha
+
+        Main tasks
+            1. Use XMLHttpRequest to create HTTP request and get data from StarWarsApi
+            2. Parse StarWars data
+            3. Render data into the DOM
+            4. Create promisified wrapper around XMLHttpRequest
+            5. Try to use fetch
+            6. Use async/await
+
+        Bonus Tasks
+            1. Websocket chat
+            2. Mapy.cz API with XML response
+    */
+
+    // const xhr = new XMLHttpRequest();
+    // xhr.open("GET", "https://swapi.co/api/people/");
+    //
+    const render = function(jsonData) {
+        const starWarsUl = document.querySelector('#star-wars');
+        for (const item of jsonData.results){
+            const li = document.createElement('li');
+            li.innerHTML = item.name;
+            starWarsUl.appendChild(li);
+        }
+    };
+    //
+    // xhr.addEventListener('load', e => {
+    //     const jsonData = JSON.parse(xhr.responseText);
+    //     render(jsonData);
+    //     console.log(jsonData);
+    // });
+    // xhr.addEventListener('progress', e => {
+    //     console.log("progress", e);
+    //
+    // });
+    // xhr.addEventListener('error', e => {
+    //     console.log("error", e);
+    //
+    //
+    // });
+    //
+    //
+    // xhr.send();
+    //
+
+
+    function myRequest(url) {
+        return new Promise((resolve, reject) => {
+            const rq = new XMLHttpRequest();
+            rq.addEventListener('load', e => {
+                resolve(e);
+            });
+            rq.addEventListener('error', e => {
+                reject(e);
+            });
+            rq.open("GET", url);
+            rq.send()
+        })
+    }
+
+    myRequest('https://swapi.co/api/people/')
+        .then(e => {
+            const jsonData = JSON.parse(e.target.responseText);
+            render(jsonData);
+        })
+        .catch(e => {
+            console.log(e);
+        })
+
+
+    //MAPY-------------------------------------------------------------------------------------
+    function renderMapy(data) {
+        var parser = new DOMParser();
+        var doc = parser.parseFromString(data, "text/xml");
+        var mapyEl = document.querySelector('#mapy');
+
+        const items = doc.querySelectorAll('item');
+
+        for (const item of items){
+            const title = item.getAttribute("title");
+            const li = document.createElement('li');
+            li.innerHTML = title;
+            mapyEl.appendChild(li);
+        }
+    }
+
+
+    fetch("https://api.mapy.cz/geocode?query=praha")
+        .then(res => res.text())
+        .then(renderMapy)
+        .catch(e => console.log(e));
+    //CHAT--------------------------------------------------------------------------------------
+
+    const textarea = document.querySelector('#chat');
+    const input = document.querySelector('#chat-input');
+
+    const ws = new WebSocket('ws://salty-peak-74076.herokuapp.com/');
+
+    ws.addEventListener('open', e => {
+        textarea.value += '[connected to chat]\n'
+    });
+
+    ws.addEventListener('error', e => {
+        textarea.value += '[error]\n'
+    });
+
+    ws.addEventListener('message', e => {
+        console.log(e);
+        textarea.value += e.data+'\n'
+    });
+
+    input.addEventListener('keydown', e => {
+        if (e.code != 'Enter') return;
+
+        const  chatMessage = e.target.value;
+        if(!chatMessage) return;
+
+        e.target.value //TODO dodelat
+    })
+
+</script>
+</body>
+</html>

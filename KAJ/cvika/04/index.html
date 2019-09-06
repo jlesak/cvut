@@ -1,0 +1,144 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Lecture 04 - Keyboard</title>
+    <style>
+        body, html { height:100%; font-family: Arial; }
+        div {
+            background: red; width:200px; height:200px; position:absolute; top:20px; left:40px;
+            border-radius: 50%;
+            box-sizing: border-box;
+            text-align: center;
+            padding-top:80px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        div a {
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+<div><a href="http://www.seznam.cz">SEZNAM</a></div>
+<script>
+    // create M class via prototype or ES6 class
+    // constructor params x,y - initial position of red circle on page
+
+    // 1. write code for moving circle on page via keyboard keys up, down, etc...
+
+    // 2. use handleEvent
+
+    // 3. log mouse position to console
+
+    // 4. show confirm before using link's href
+
+    // 5. stopPropagating on circle to avoid logging mouseposition, also investigate useCapture option
+
+    // 6. try create some Promise resolved, rejected
+
+    // 7. try async and await
+
+    var M = function (x,y) {
+        this.circle = document.querySelector("div");
+        this.circle.style.top = y + 'px';
+        this.circle.style.left = x + 'px';
+        this._step = 7;
+        this._timerId = null;
+
+        document.body.addEventListener('keydown', this);
+        document.body.addEventListener('mousemove', this);
+        document.body.addEventListener('click', this);
+        document.body.addEventListener('mousemove', this);
+    }
+
+    M.prototype._keydown = function (e) {
+        var code = e.code;
+        this._move(code, this._step)
+    }
+
+    // move circle
+    M.prototype._move = function (dir, mv) {
+        switch (dir) {
+            case "ArrowUp":
+                this.circle.style.top = (parseInt(this.circle.style.top) - mv) + 'px';
+                break;
+            case "ArrowDown":
+                this.circle.style.top = (parseInt(this.circle.style.top) + mv) + 'px';
+                break;
+            case "ArrowLeft":
+                this.circle.style.left = (parseInt(this.circle.style.left) - mv) + 'px';
+                break;
+            case "ArrowRight":
+                this.circle.style.left = (parseInt(this.circle.style.left) + mv) + 'px';
+                break;
+        }
+    }
+
+    // log mouse position
+    M.prototype._logPosition = function (e) {
+        if(this._timerId == null){
+            this._timerId = window.setTimeout(function () {
+                console.log(`Pozice mysi je: x=${e.clientX} a y=${e.clientY}`);
+                this._timerId = null;
+            }.bind(this), 1000)
+        }
+    }
+
+    // showConfirm for links
+    M.prototype._showConfirm = function (e) {
+        if(!confirm(`Chceš přejít na ${e.target.href}?`)){
+            e.preventDefault();
+        }
+    }
+
+    // handleEvent function look at constructor
+    M.prototype.handleEvent = function (e) {
+        if(e.type == 'keydown'){
+            this._keydown(e);
+        }
+        if(e.type == 'mousemove'){
+            this._logPosition(e);
+        }
+        if(e.type == 'click' && e.target.nodeName.toLowerCase() == 'a'){
+            this._showConfirm(e);
+        }
+    }
+
+    var m = new M(100,100);
+
+    let p1 = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve("OK")
+        }, 3000)
+    })
+
+    p1.then(message => {
+        console.log(message)
+    }, error => console.log(error));
+
+    let downloader = function () {
+        const p = new Promise((resolve, reject) => {
+            fetch(document.location.href)
+                .then(response => response.text(), () => reject('error fetching'))
+                .then(text => resolve(text), () => reject('error transforming'));
+        });
+
+        return  p;
+    }
+
+    //downloader().then(result => console.log(result));
+
+    const dw = async function() {
+        let d = await fetch(document.location.href);
+        let t = await d.text();
+    }
+
+    dw().then(r => console.log(r))
+
+</script>
+</body>
+</html>

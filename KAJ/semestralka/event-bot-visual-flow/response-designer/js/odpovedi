@@ -1,0 +1,114 @@
+[
+  {
+    "topic": "TestAgent",
+    "intent": "refreshment",
+    "payloadType": "text",
+    "payload": "Občerstvení bude!",
+    "id": "response-definition:e10a443b-a61c-ec15-909f-c0c1600d1419"
+  },
+  {
+    "topic": "TestAgent",
+    "intent": "refreshment",
+    "payloadType": "text",
+    "payload": "Občerstvení určitě bude",
+    "id": "response-definition:968481a9-d4a3-81e8-aeb4-2d534a981d6f"
+  },
+  {
+    "topic": "TestAgent",
+    "intent": "refreshment.food",
+    "payloadType": "text",
+    "payload": "Máte hlad? Jídlo najdete za rohem ",
+    "id": "response-definition:776a9f4d-8589-3c66-e1fe-2bdc2c207980"
+  },
+  {
+    "topic": "TestAgent",
+    "intent": "refreshment.root",
+    "payloadType": "text",
+    "payload": "Jídlo je zadarmo. Jako dycky!",
+    "id": "response-definition:af844e03-9de0-8403-25b6-5311be9886b9"
+  },
+  {
+    "topic": "TestAgent",
+    "intent": "refreshment.drink",
+    "payloadType": "text",
+    "payload": "K pití máme pivo, limo, kávu, čaj",
+    "id": "response-definition:a0b7534a-443c-2d85-3275-441ea00f9cf9"
+  },
+  {
+    "topic": "TestAgent",
+    "intent": "refreshment.drink.price",
+    "payloadType": "text",
+    "payload": "Pití zadarmo už není. To si musíte zaplatit podle ceníku",
+    "id": "response-definition:3e67fecd-4d44-2ec6-b59c-9ca0575c65a1"
+  },
+  {
+    "topic": "TestAgent",
+    "intent": "refreshment.drink.price",
+    "payloadType": "text",
+    "payload": "No zadarmo to nebude. Pivo zadarmo.. kdo to kdy viděl?!",
+    "id": "response-definition:ebc79e91-08fa-7358-23d3-e5ef4b0f2668"
+  },
+  {
+    "topic": "TestAgent",
+    "intent": "refreshment.drink.price.besure",
+    "payloadType": "text",
+    "payload": "Ano, nemůžeme za vás platit všechno",
+    "id": "response-definition:91e489c5-7360-e586-8f1c-94893700033a"
+  },
+  {
+    "topic": "TestAgent",
+    "intent": "parking",
+    "payloadType": "text",
+    "payload": "parkovat můžete za rohem",
+    "id": "response-definition:142d9968-bdc6-3470-b142-f21da918c195"
+  },
+  {
+    "topic": "TestAgent",
+    "intent": "parking",
+    "payloadType": "text",
+    "payload": "parkoviště najdete za rohem",
+    "id": "response-definition:6a366eb4-bfa2-b8b9-8488-eb37b1ccd7ab"
+  },
+  {
+    "topic": "TestAgent",
+    "intent": "parking.price",
+    "payloadType": "text",
+    "payload": "cena parkoviště je 100 Kč/h",
+    "id": "response-definition:372ed2e4-ffcb-fae9-39f4-3e82f2d434b1"
+  },
+  {
+    "topic": "TestAgent",
+    "intent": "parking.price",
+    "payloadType": "text",
+    "payload": "rovná stovečka za hodinu",
+    "id": "response-definition:bdd41f96-5678-5bf5-ed9a-e9caf8fd44fc"
+  },
+  {
+    "topic": "TestAgent",
+    "intent": "date",
+    "payloadType": "text",
+    "payload": "Je to už zítra!!!",
+    "id": "response-definition:bd3e1d83-423f-96b9-e2e9-ac0f3d53e9f1"
+  },
+  {
+    "topic": "TestAgent",
+    "intent": "date",
+    "payloadType": "text",
+    "payload": "Startujeme zítra",
+    "id": "response-definition:54a939a7-d688-7319-77af-0d8a0de876a2"
+  },
+  {
+    "topic": "TestAgent",
+    "intent": "place",
+    "payloadType": "text",
+    "payload": "Na tom nejlepším místě na světe.",
+    "id": "response-definition:c4dd9173-14bd-9d39-df9f-2470f7a43cff"
+  },
+  {
+    "topic": "TestAgent",
+    "intent": "place.transportation",
+    "payloadType": "text",
+    "payload": "Dostat se tam můžete tramvají, metrem, autem, na koštěti.. jak je libo",
+    "id": "response-definition:4f4b04ca-9e61-cfc3-131c-dad11d41ae17"
+  }
+]
